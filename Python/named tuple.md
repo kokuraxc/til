@@ -11,6 +11,8 @@ print(bob)
 // Person(name='Bob', age=30, gender='male')
 ```
 
+[Python Module of the Week - namedtuple](https://pymotw.com/2/collections/namedtuple.html)
+
 ---
 
 Named tuples are basically easy-to-create, lightweight object types. Named tuple instances can be referenced using object-like variable dereferencing or the standard tuple syntax. They can be used similarly to `struct` or other common record types, except that **they are immutable**.
@@ -38,3 +40,5 @@ line_length = sqrt((pt1.x-pt2.x)**2 + (pt1.y-pt2.y)**2)
 However, named tuples are still backwards compatible with normal tuples.
 
 Thus, **you should use named tuples instead of tuples anywhere you think object notation will make your code more pythonic and more easily readable**.
+
+[stack**overflow** What are "named tuples" in Python?](https://stackoverflow.com/a/2970722)
