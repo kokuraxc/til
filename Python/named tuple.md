@@ -11,7 +11,7 @@ print(bob)
 // Person(name='Bob', age=30, gender='male')
 ```
 
-[Python Module of the Week - namedtuple](https://pymotw.com/2/collections/namedtuple.html)
+> [Python Module of the Week - namedtuple](https://pymotw.com/2/collections/namedtuple.html)
 
 ---
 
@@ -41,4 +41,4 @@ However, named tuples are still backwards compatible with normal tuples.
 
 Thus, **you should use named tuples instead of tuples anywhere you think object notation will make your code more pythonic and more easily readable**.
 
-[stack**overflow** What are "named tuples" in Python?](https://stackoverflow.com/a/2970722)
+> [stack**overflow** What are "named tuples" in Python?](https://stackoverflow.com/a/2970722)
