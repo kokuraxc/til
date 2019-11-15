@@ -2,7 +2,7 @@ A __namedtuple__ assign names, as wellas the numerical index, to each member.
 
 __namedtuple__ instances are just as memory efficient as regular tuples because they do not have per-instance dictionaries. Each kind of __namedtuple__ is represented by its own class, created by using the `namedtuple()` *factory function*. The arguments are the **name** of the new class and a string containing the **names of the elements**.
 
-```
+```python
 import collections
 
 Person = namedtuple('Person', 'name age gender')
@@ -17,7 +17,7 @@ Named tuples are basically easy-to-create, lightweight object types. Named tuple
 
 For example, it is common to represent a point as a tuple `(x, y)`. This leads to code like the following:
 
-```
+```python
 pt1 = (1.0, 5.0)
 pt2 = (2.5, 1.5)
 
@@ -25,7 +25,7 @@ from math import sqrt
 line_length = sqrt((pt1[0] - pt2[0])**2 + (pt1[1]-pt2[1])**2)
 ```
 Using a named tuple it becomes **more readable**:
-```
+```python
 from collections import namedtuple
 Point = namedtuple('Point', 'x y')
 pt1 = Point(1.0, 5.0)
