@@ -1,4 +1,4 @@
-##named tuple
+## named tuple
 
 A __namedtuple__ assign names, as wellas the numerical index, to each member.
 
