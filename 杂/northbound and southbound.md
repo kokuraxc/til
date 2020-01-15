@@ -6,4 +6,4 @@ In a figurative sense, northbound flow can be thought of as going upward, while 
 
 From [link](https://whatis.techtarget.com/definition/northbound-interface-southbound-interface).
 
-![](northbound and southbound.png)
+![system](northbound%20and%20southbound.png?raw=true)
