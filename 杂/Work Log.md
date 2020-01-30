@@ -28,13 +28,35 @@ My work update:
 
    1. The structure of the folders is as below. Last time when I tried out EIS, I was confused about the structure. I was uncertain whether EIS was installed or not, as there was the `IEdgeInsights` folder, but also the `installer` folder. In the end I didn't start from the `installer` folder but the `IEdgeInsights`.
 
-      > EdgeInsightsSoftware-v2
-      >  -> Docs
-      >  -> IEdgeInsights
-      >  -> installer
-      >  -> turtlecreek
-      >  -> README.md
+      ```
+      . EdgeInsightsSoftware-v2
+      +---- Docs
+      +---- IEdgeInsights
+      +---- installer
+      +---- turtlecreek
+      +---- README.md
+      ```
 
    2. Now I'm running the `installer\installation\setup.sh` script.
 
-   3. 
+   3. EIS installation failed as the file `./install.sh` is not executable.
+      ![](eis_install_failed.png)
+      
+      Fixed this by adding one line to the original `Dockerfile.eisbase` script.
+
+      ```
+      RUN chmod +x ./install.sh  <--- added this line
+      RUN ./install.sh --cython
+      ```
+
+   4. Another error. The fix:
+   
+      ```
+      COPY . ./VideoIngestion/
+      RUN chmod 755 ./VideoIngestion/vi_start.sh   <--- added this line
+      ENTRYPOINT ["VideoIngestion/vi_start.sh"]
+      ```
+
+   5. <mark>Succeeded!</mark> The `setup.sh` installed all the stuff. When it finished, the EIS Visualizer App automaticlally popped up and the PCB demo is now being played.
+      ![](eis_visualizer.png)
+
