@@ -60,3 +60,16 @@ My work update:
    5. <mark>Succeeded!</mark> The `setup.sh` installed all the stuff. When it finished, the EIS Visualizer App automaticlally popped up and the PCB demo is now being played.
       ![](eis_visualizer.png)
 
+3. When the system is freshly restarted, here is how to start the EIS.
+   1. If docker-compose.yml is modified, run <mark>` $ sudo ./provision_eis.sh ../docker-compose.yml`</mark>.
+   2. Run command `$ xhost +` before starting EIS stack. This is needed by `ia_visualizer` service to render the UI.
+   3. Run `docker-compose up --build -d`. Or run the two steps like below:
+      ```
+      $ docker-compose build
+      $ docker-compose up -d
+      ```
+
+4. I have tried other video files, ip camera, usb camera, webcam, and never succeeded. There is another option: use the <mark>camera simulation</mark> as stated in the user guide.
+![](rtsp_simulation.png)
+Unfortunately this approach is failing. Need to confirm again and then troubleshoot it.
+![](rtsp_sim_failed.png)

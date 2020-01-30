@@ -28,3 +28,10 @@ Unstructured data and structured data.
 ### AI terminology.
 ![](aiterms.png)
 
+### AI Transformation
+1. Execute <mark>pilot projects</mark> to gain momentum
+2. Build an in-house AI team
+3. Provide broad AI training
+4. Develop an AI strategy
+5. Develop internal and external communications
+
