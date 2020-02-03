@@ -101,5 +101,9 @@ The PCB demo sample application uses both computer vision and deep learning algo
 
 The defects detected in the demo are missing components and shorts. We can modify this part to cater to our need to detect missing gear parts at the assembly platform.
 
+### Factory Control App
 
+Different modules in this software communicate through a publisher-subscriber mode. This factory control app subscribes to the output from the Video Analytics module, and controls the alarm light and reset button accordingly. 
+
+We can refer to this app to develop our notification mechanism if abnormality is detected.
 
