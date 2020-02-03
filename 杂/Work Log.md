@@ -81,7 +81,7 @@ Unfortunately this approach is failing. Need to confirm again and then troublesh
 
 ### Video Ingestion -> filter
 
-The Filter (user defined function) is responsible for doing pre-processing of the ingested video frames. It uses the filter configuration (in **etcd_pre_load.json**) to do the *selection of key frames* (frames of interest for further processing).
+The <mark>Filter</mark> (**user defined function**) is responsible for doing pre-processing of the ingested video frames. It uses the filter configuration (in **etcd_pre_load.json**) to do the *selection of key frames* (frames of interest for further processing).
 
 PCB filter checks the ingested video once **every 8 frames**. If in this 8th frame, the PCB is **in the center of the frame**, the data will be added to the output queue.
 
@@ -89,5 +89,17 @@ PCB filter checks the ingested video once **every 8 frames**. If in this 8th fra
 
 `training_mode` key in the filter configuration. </br>
 `training_mode: If "true", used to capture images for training and building model`.</br>
-__**Need explanations on how to do training and building model.**__
+> __**Need explanations on how to do training and building model.**__ Can the training only be done with OpenVINO? What does openVINO has to do with **training_mode** key in the filter configuration? In the configuration for Video Analytics, "HDDL" and "MYRIAD" devices require different model files than "CPU" and "GPU" devices.
+
+### Video Analytics
+
+Video Analytics module subscribes to the published input stream coming out of Video Ingestion module over messagebus to get (metadata, frame) tuple.
+
+The <mark>Classifier</mark> (**user defined function**) is responsible for running the classification algorithm on the video frames received from filter.
+
+The PCB demo sample application uses both computer vision and deep learning algorithms for detecting defects on the PCB board.
+
+The defects detected in the demo are missing components and shorts. We can modify this part to cater to our need to detect missing gear parts at the assembly platform.
+
+
 
