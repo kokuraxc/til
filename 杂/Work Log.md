@@ -73,3 +73,21 @@ My work update:
 ![](rtsp_simulation.png)
 Unfortunately this approach is failing. Need to confirm again and then troubleshoot it.
 ![](rtsp_sim_failed.png)
+
+
+# 3 Feb 2020 Monday
+
+## EIS user guide readthrough
+
+### Video Ingestion -> filter
+
+The Filter (user defined function) is responsible for doing pre-processing of the ingested video frames. It uses the filter configuration (in **etcd_pre_load.json**) to do the *selection of key frames* (frames of interest for further processing).
+
+PCB filter checks the ingested video once **every 8 frames**. If in this 8th frame, the PCB is **in the center of the frame**, the data will be added to the output queue.
+
+> We can use the same technique to do the pre-processing for the A1 project. If the boundary marker is in view of the camera, the frame data is ready to be passed to the next module to do further analysis. ![](boundary_marker.png)
+
+`training_mode` key in the filter configuration. </br>
+`training_mode: If "true", used to capture images for training and building model`.</br>
+__**Need explanations on how to do training and building model.**__
+
