@@ -79,7 +79,31 @@ Unfortunately this approach is failing. Need to confirm again and then troublesh
 
 ## EIS user guide readthrough
 
-### Video Ingestion -> filter
+### System Architecture
+
+![](northbound%20and%20southbound.png)
+One example that takes advantage of this northbound relationship is incremental learning. In solutions that leverage Deep Learning, the ability to fine tune or continuously improve the algorithm requires offline learning to occur. This can be done by sending Insights results to an On Premise or Cloud based training framework, and periodically retrain the model with the full data set, and then update the model on the Edge Insights System(s). 
+
+The data flow in the EIS can be simplified as follows:
+![](data_flow.png)
+
+### EIS Message Bus and Configuration Management
+
+EIS Message Bus is an abstraction over ZeroMQ* which is used for all inter-container communication in EIS. ZeroMQ message bus is a broker-less message bus implementing Pub-Sub and Request-Response patterns.
+
+EIS uses **etcd** for configuratio management, which is a strongly consistent, distributed key-value store. 
+
+Every service in `IEdgeInsights/docker_setup/docker-compose.yml` is a
+* messagebus client if it needs to send or receive data over EISMessageBus
+* etcd client if it needs to get data from etcd distributed key store
+
+### Video Ingestion
+
+#### Ingestor
+
+A Gstreamer based pipeline is supported for reading from **basler/rtsp/usb** cameras through OpenCV.
+
+#### filter
 
 The <mark>Filter</mark> (**user defined function**) is responsible for doing pre-processing of the ingested video frames. It uses the filter configuration (in **etcd_pre_load.json**) to do the *selection of key frames* (frames of interest for further processing).
 
@@ -99,16 +123,16 @@ The <mark>Classifier</mark> (**user defined function**) is responsible for runni
 
 The PCB demo sample application uses both computer vision and deep learning algorithms for detecting defects on the PCB board.
 
-The defects detected in the demo are missing components and shorts. We can modify this part to cater to our need to detect missing gear parts at the assembly platform.
+> The defects detected in the demo are missing components and shorts. We can modify this part to cater to our need to detect missing gear parts at the assembly platform.
 
 ### Factory Control App and Opcua Export App
 
 Different modules in this software communicate through the EIS message bus in a publisher-subscriber mode. The Factory Control App subscribes to the output from the Video Analytics module, and controls the alarm light and reset button accordingly. The Opcua Export App module also subscribes to Video Analytics and then publishes to opcua clients.
 
-We can refer to these two apps to develop our customized notification mechanisms if abnormality is detected.
+> We can refer to these two apps to develop our customized notification mechanisms if abnormality is detected.
 
 ### Visualizer
 
 Like the Factory Control App, the Visualizer subscribes to the published topic of Video Analytics module, and renders a bounding box when it detects a defects in the frame.
 
-This module is useful when we do development and testing, but could be disable in the production environment.
+> This module is useful when we do development and testing, but could be disable in the production environment.
