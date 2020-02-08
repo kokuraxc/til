@@ -35,3 +35,8 @@ Unstructured data and structured data.
 4. Develop an AI strategy
 5. Develop internal and external communications
 
+### What makes an ML problem easier
+1. Learning a "simple" concept
+   * The problem takes a human less than 1 second of mental thought to solve.
+2. Lots of data abailable
+
