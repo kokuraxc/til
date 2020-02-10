@@ -1,5 +1,3 @@
-# Week 1 Introduction
-
 ANI and AGI
 ![](ANI%20and%20AGI.png)
 
@@ -39,4 +37,25 @@ Unstructured data and structured data.
 1. Learning a "simple" concept
    * The problem takes a human less than 1 second of mental thought to solve.
 2. Lots of data abailable
+
+### Machine learning project workflow
+1. Collect data
+2. Train model
+3. Deploy
+
+### Data science project workflow
+1. Collect data
+2. Analyze data
+   * Iterate many times to get good insights
+3. Suggest hypotheses / actions
+   * Deploy changes
+   * Re-analyze new data periodically
+
+### How to choose an AI project -> Brainstorming framework
+* Think about automating tasks rather than automating jobs.
+* What are the main drivers of business value?
+* What are the main pain point in the business.
+
+Before commiting to an AI project, do due diligence.
+![](due_diligence.png)
 
