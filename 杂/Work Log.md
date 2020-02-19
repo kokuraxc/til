@@ -136,3 +136,36 @@ Different modules in this software communicate through the EIS message bus in a 
 Like the Factory Control App, the Visualizer subscribes to the published topic of Video Analytics module, and renders a bounding box when it detects a defects in the frame.
 
 > This module is useful when we do development and testing, but could be disable in the production environment.
+
+# 17 Feb 2020
+
+Working on app development with `Flutter`.
+
+## The different between `MaterialApp` and `Scaffold`
+`MaterialApp` is the starting point of your app, it tells Flutter that you are going to use Material components and follow material design in your app.
+
+`Scaffold` is used under `MaterialApp`, it gives you many basic functionalities, like `AppBar`, `BottomNavigationBar`, `Drawer`, `FloatingActionButton` etc.
+
+So, this is how a typical app starts with.
+```dart
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(),
+      body: YourWidget(),
+    ),
+  ));
+}
+```
+
+## Using Gradients in Flutter
+[link](https://owenhalliday.co.uk/flutter-gradient/)
+
+## Yellow lines under Text Widgets in Flutter?
+What you're missing is an instance of `Theme` as a parent.
+
+Why is that important to know? Because when you'll develop a Modal (using `showDialog` for example), you'll face the same problem. BUT Scaffold is an opaque fullscreen widget! And you obviously don't want that in your Modal.
+
+There are many ways to introduce a Theme instance. In Material App, this is usually achieved by instantiating a `Material` Widget. And guess what? `Scaffold` creates one for you. But `Dialog` too!
+<br>
+[link](https://stackoverflow.com/a/47123685)
