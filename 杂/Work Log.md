@@ -169,3 +169,70 @@ Why is that important to know? Because when you'll develop a Modal (using `showD
 There are many ways to introduce a Theme instance. In Material App, this is usually achieved by instantiating a `Material` Widget. And guess what? `Scaffold` creates one for you. But `Dialog` too!
 <br>
 [link](https://stackoverflow.com/a/47123685)
+
+# 19 Feb 2020
+
+## [Splash Screen](https://uxdesign.cc/building-the-perfect-splash-screen-46e080395f06)
+The splash screen was born out of a requirement for apps to spend a few seconds setting up before the user can get moving. 
+
+The most simple splash screens will show a solid or gradient background with the app icon and title fading into view. Take it a step further and animate your app icon to give a real sense of quality — just remember to keep the animation focused and simple, and definitely don’t break the 3-second rule. 
+
+The best strategy you can have here is to firstly **isolate critical errors only**. If an image is taking a long time to load, you don’t need to hold the user up — you can ignore this error and try reloading it on the next screen. But if the internet connection is down and you can’t authenticate your user, you really can’t let the user progress past this screen. So firstly make sure you only present an error if the problem is critical enough that the user shouldn’t be allowed to continue using the app.
+
+By keeping the error integrated in this screen, you maintain a professional look within the app, whilst also clearly prompting your user to take action with the refresh button.
+
+One final trick for the perfect splash screen is to check if the user is using the correct version of the app.
+
+The general strategy is to design the background of your splash screen so that it can merge effortlessly with the first screen of your app.
+
+To Sum it up:
+* Keep it simple with a short, elegant animation to present your app
+* Always remember the 3-second rule. And if you go over, show a loading indicator.
+* Load the absolute minimum data from the server, but making sure you have all the info needed to show the next screen immediately.
+* Integrate errors into your splash screen to avoid ugly popups
+* Take this opportunity to ensure your users are running an up-to-date version of the app, and if they aren’t, direct them to the stores to update.
+
+## Selenium
+
+Once the WebElement is located, its info can be accessed through the following:
+```py
+for element in self.driver.find_elements_by_tag_name('img'):
+   print element.text
+   print element.tag_name
+   print element.parent
+   print element.location
+   print element.size
+```
+
+### Check if there is an alert and accept it.
+[link](https://stackoverflow.com/a/19019311)
+
+### Explicit Waits
+```py
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
+driver = webdriver.Firefox()
+driver.get("http://somedomain/url_that_delays_loading")
+try:
+    element = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.ID, "myDynamicElement"))
+    )
+finally:
+    driver.quit()
+```
+### Implicit Waits
+```py
+from selenium import webdriver
+
+driver = webdriver.Firefox()
+driver.implicitly_wait(10) # seconds
+driver.get("http://somedomain/url_that_delays_loading")
+myDynamicElement = driver.find_element_by_id("myDynamicElement")
+```
+
+The Python program to download financial reports has been running for some time now. It stopped twice, once because of *multiple results were found for some temple*, another time there were *no financial report avaiable* for this temple.
+
+Testing and debugging are so important. You can never expect what will happen when it's time to run the program.
