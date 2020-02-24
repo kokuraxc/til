@@ -236,3 +236,18 @@ myDynamicElement = driver.find_element_by_id("myDynamicElement")
 The Python program to download financial reports has been running for some time now. It stopped twice, once because of *multiple results were found for some temple*, another time there were *no financial report avaiable* for this temple.
 
 Testing and debugging are so important. You can never expect what will happen when it's time to run the program.
+
+# 24 Feb 2020, Monday
+
+## MICR
+Came in the morning, opened the dashboards. "Rejcts By Units" was missing all the charts and table, only showing the titles "Rejects By Units" and "Cost Per Unit". Planned to go to Grafana server and check out was there anything wrong with the script or the csv data file, but refrained from doing so. Refreshed the page in Nerve Center, the charts and table came out mystically. Kind of solved the problem.
+
+Plan for today:
+1. Record `CRM` app demo video
+2. Edit it
+3. Send it to Martin
+4. Install `Ubuntu`
+
+* Unexpected visitors came to MICR, brought by WW. Did the demo for them.
+* Recorded the demo and edited the video for Martin.
+* Didn't get around to install `Ubuntu`. Will try to do this later tonight at home.
