@@ -59,3 +59,29 @@ Unstructured data and structured data.
 Before commiting to an AI project, do due diligence.
 ![](due_diligence.png)
 
+## Working with an AI team
+
+One `pitfall` when working with AI team is to `expect 100% accuracy` from the AI software, because of
+
+* Limitations of ML
+* Insufficient data
+* Mislabeled data
+* Ambiguous labels
+
+## Technical tools for AI teams
+
+### Machine learning frameworks:
+* TensorFlow
+* PyTorch
+* Keras
+* MXNet
+* CNTK
+* Caffe
+* PaddlePaddle
+* Scikit-learn
+* R
+* Weka
+
+### Research publications:
+* Arxiv
+
