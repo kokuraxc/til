@@ -251,3 +251,36 @@ Plan for today:
 * Unexpected visitors came to MICR, brought by WW. Did the demo for them.
 * Recorded the demo and edited the video for Martin.
 * Didn't get around to install `Ubuntu`. Will try to do this later tonight at home.
+
+# 25 Feb 2020, Tuesday
+
+## Rockwell face recognition system
+
+Received email from Anup about this project to create a face recognition authentication system for Rockwell. He'll be the tech lead, and I'll develop in Flask the part to capture the image and transfer the login info to MES in cloud.
+
+## MICR demo scripts
+> Hi sir, welcome to the **Manufacturing Intelligence Control Room at ARTC**.
+> 
+> This testbed is a venture by ARTC and the capability developed here is applied in multiple projects with MNC companies like `Microsoft`, `McKinsey &Company`, `Fujitsu`, `ABB` and local SMEs like `Arcstone`, `Nextan` and `Abrasive Engineering`.
+>
+> In a connected factory, with each passing minute, a substantial amount of real time and non-real time data is generated. There is a need to **collect, digitize and visualize** all this information.
+>
+> MICR explores how IoT technology can be used to **create solutions to increate the visibility and traceability of assets, and decrease the production planning time**. 
+>
+> As you see here, we have multiple business intelligence dashboards showing the status of the factory. 
+>
+> If you see there you would find the numbers of **orders and the throughput** for yesterday and today. This is the most important information a manager would want to see.
+> Moving on, we have **OEE which is a multiple of avaiability, performance and quality**. We can understand how different factors vary over time.
+> We have other visualization like information about **shceduled downtime and inventory status**, etc.
+>
+> (_Moving the dashboards away to show the **heartbeat**_) The **MICR mind** is the intelligent system which serves as the **heartbeat of MICR**. 
+>
+> By the way, this gesture control wand in my hand is part of the Mezzanine system by Oblong. With it, we can move the dashboards freely around in this room. (_Move a dashboard to the other wall in the room_)
+>
+> Getting back to `MICR mind`. It constantly monitors the status of the machines on the shop floor and prompts the MICR user with alert whenever there is an error or some breakdown occurs. 
+>
+> (_Move the company logos away to show the underneath screen._) Like here, the AGV is tasked with moving material from the warehouse to the assembly line. In the simulated scenario, it breaks down half way. The MICR mind will capture this event and alert the user immediately. Upon user's confirmation to solve the issue, the MICR mind will contact the maintenance personnel and create a maintenance work order in the MES system.
+>
+> We can watch the maintenance engineer doing the repair work through the camera. Or we can turn the glass wall transperant, and take a look at the shop floor directly from the control room.
+>
+> That's all for the demo. Thank you.
