@@ -85,3 +85,73 @@ One `pitfall` when working with AI team is to `expect 100% accuracy` from the AI
 ### Research publications:
 * Arxiv
 
+### Example roles of an AI team
+* Software Engineer
+* Machine Learning Engineer
+   * Training
+* Machine Learning Researcher
+   * Extend state-of-the-art in ML
+* `Applied ML Scientist` (fusion of the above two)
+* Data Scientist
+   * Examine data and provide insights
+   * Make presentation to team/executive
+* Data Engineer
+   - Organize data
+   - Make sure data is saved in an easily accessible, secure and cost effective way
+* AI Product Manager
+   * Help decide what to build; what's feasible and valuable
+
+Getting started with a small team.
+* 1 Software Engineer, or
+* 1 Machine Learning Engineer/Data Scientist, or
+* Nobody but yourself
+
+<mark>Just Get started!</mark>
+
+## AI Transformation Playbook
+1. Execute pilot projects to gain momentum
+   * More important for the initial project to succeed rather than be the most valuable
+   * Show traction within 6-12 months
+   * Can be in-house or outsourced
+2. Build an in-house AI team
+3. Provide broad AI training
+   * Executives and senior business leaders
+      * What AI can do for your enterprise
+      * AI strategy
+      * Resource allocation
+   * Leaders of divisions working on AI projects
+      * Set project direction (technical and business diligence)
+      * Resource allocation
+      * Monitor progress
+   * AI engineer trainees
+      * Build and ship AI software
+      * Gather data
+      * Execute on specific AI projects
+4. Develop an AI strategy
+   * Leverage AI to create an advantage specific to your industry sector
+   * Design strategy aligned with the "`Virtuous Cycle of AI`" (positive feedback loop)
+   * **Lots of AI needs to be specialized or verticalized for your industry sector**
+   * Consider creating a data strategy
+      * Strategic data acquisition
+      * Unified data warehouse
+   * Create network effects and platform advantages
+      * In industries with "`winner takes all/most`" dynamics, AI can be an accelerator
+5. Develop internal and external communications
+   * Investor relations
+   * Government relations
+   * Consumer/user education
+   * Talent/recruitment
+   * Internal communications
+
+## AI pitfalls to aviod
+* Don't expect AI to solve everything
+   * Be realistic about what AI can and cannot do given limitations of technology, data, and engineering resources
+* Don't just hire 2-3 ML engineers and count solely on them to come up with use cases
+   * Pair engineering talent with business talent and work cross-functionally to find feasible and valuable projects
+* Don't expect the AI project to work the first time
+   * Plan for AI development to be an iterative process, with multiple attempts needed to succeed
+* Don't expect traditional planning processes to apply without changes
+   * Work with AI team to establish timeline estimates, milestones, KPIs, etc.
+* Don't think you need superstar AI engineers before you can do anything
+
+## Taking your first step in AI
