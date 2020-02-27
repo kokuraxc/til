@@ -299,3 +299,4 @@ TODOs for today:
 The dashboard configuration for the report in the mongodb in my laptop was not the latest version, so I replaced it with the one downloaded from `GitLab` repository. 
 
 Also the `node-red` flow was empty when I started it. So I re-created the flow, with `mosca` `mqtt` broker, and a TCP port listener which generates the simulated status data together with the timestamp.
+
