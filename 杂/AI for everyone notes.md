@@ -155,3 +155,5 @@ Getting started with a small team.
 * Don't think you need superstar AI engineers before you can do anything
 
 ## Taking your first step in AI
+* Start brainstorming projects
+   * <mark>No projects is too small</mark>

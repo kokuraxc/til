@@ -287,3 +287,15 @@ Received email from Anup about this project to create a face recognition authent
 > That's all for the demo. Thank you.
 >
 > <mark>`Add the facial recognition program`?</mark>
+
+# 27 Feb 2020, Thursday
+
+TODOs for today:
+* [✓] Prepare SAESL dashboard demo
+* Install Edge Insights Software
+* Continue learning Machine Learning
+* Look at how to improve Inventory app
+
+The dashboard configuration for the report in the mongodb in my laptop was not the latest version, so I replaced it with the one downloaded from `GitLab` repository. 
+
+Also the `node-red` flow was empty when I started it. So I re-created the flow, with `mosca` `mqtt` broker, and a TCP port listener which generates the simulated status data together with the timestamp.
