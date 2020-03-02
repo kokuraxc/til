@@ -67,3 +67,8 @@ model = tf.keras.models.Sequential([
 model.compile(optimizer = 'adam', loss = 'sparse_categorical_crossentropy')
 model.fit(training_images, training_labels, epochs = 5, callbacks = [callbacks])
 ```
+
+## Convolutional Neural Network
+Simply put, **pooling** is a way of compressing an image.
+
+Add some layers to do convolution before you have the dense layers, and then the information going to the dense layers is more focussed, and possibly more accurate.
