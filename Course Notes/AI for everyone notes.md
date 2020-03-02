@@ -157,3 +157,58 @@ Getting started with a small team.
 ## Taking your first step in AI
 * Start brainstorming projects
    * <mark>No projects is too small</mark>
+
+## Survey of major AI application areas
+* Computer Vision
+   * Image classification/Object recognition
+      * Face recognition
+   * Object detection
+   * Image segmentation
+   * Tracking
+* Natural Language Processing
+   * Text classification
+      * Email -> Spam/Non-spam
+      * Product description -> Product category
+      * Sentiment recognition
+   * Information retrieval
+      * E.g., web search
+   * Name entity recognition
+   * Machine translation
+   * Others: parsing, part-of-speech tagging
+* Speech
+   * Speech recognition (speech-to-text)
+   * Trigger word/wakeword detection
+   * Speaker ID
+   * SPeech synthesis (text-to-speech, TTS)
+* Robotics
+   * Perception: Figuring out what's in the world around you
+   * Motion planning: finding a path for the robot to follow
+   * Control: sending commands to the motors to follow a path
+
+## Survey of major AI techniques
+* Unsupervised learning
+   * Clustering
+* Transfer learning
+   * Car detection -> Golf cart detection
+   * Learn from task A, and use knowledge to help on task B
+* reinforcement learning
+   * Use a "reward signal" to tell the AI when it's doing well or poorly.
+* GANs (Generative Adversarial Network)
+   * Synthesize new images from scratch
+* Knowledge Graph
+
+## Why bias matters
+* Hiring tool that discriminated against women
+* Facial recognition working better for light-skinned than dark-skinned individuals
+* Bank loan approvals
+* Toxic effect of reinforcing unhealthy stereotypes
+
+## Adverse uses of AI
+* DeepFakes: Synthesize video of people doing things they never did
+* Undermining of democracy and privacy: Oppressive surveillance
+* Generating fake comments
+* Spam vs. anti-spam and fraud vs. anti-fraud
+
+## AI's imapct on jobs
+Is this true? ![](AI_imapct_on_jobs.png)
+
