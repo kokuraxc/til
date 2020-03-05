@@ -72,3 +72,62 @@ model.fit(training_images, training_labels, epochs = 5, callbacks = [callbacks])
 Simply put, **pooling** is a way of compressing an image.
 
 Add some layers to do convolution before you have the dense layers, and then the information going to the dense layers is more focussed, and possibly more accurate.
+
+You'll notice that there's a bit of a change here in that the training data needed to be reshaped. That's because the first convolution expects a single tensor containing everything, so instead of `60,000 28x28x1` items in a list, we have a single 4D list that is `60,000x28x28x1`, and the same for the test images. If you don't do this, you'll get an error when training as the Convolutions do not recognize the shape.
+
+```py
+import tensorflow as tf
+mnist = tf.keras.datasets.fashion_mnist
+(training_images, training_labels), (test_images, test_labels) = mnist.load_data()
+training_images=training_images.reshape(60000, 28, 28, 1)
+training_images=training_images / 255.0
+test_images = test_images.reshape(10000, 28, 28, 1)
+test_images=test_images/255.0
+```
+
+```py
+model = tf.keras.models.Sequential([
+  tf.keras.layers.Conv2D(64, (3,3), activation='relu', input_shape=(28, 28, 1)),
+  tf.keras.layers.MaxPooling2D(2, 2),
+  tf.keras.layers.Conv2D(64, (3,3), activation='relu'),
+  tf.keras.layers.MaxPooling2D(2,2),
+  tf.keras.layers.Flatten(),
+  tf.keras.layers.Dense(128, activation='relu'),
+  tf.keras.layers.Dense(10, activation='softmax')
+])
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+model.summary()
+model.fit(training_images, training_labels, epochs=5)
+t
+```
+
+## To use non-unified images
+### Image generator
+![](image_generator.png)
+
+`Sigmoid` is great for binary classification, where one class will tend towards zero and the other tending towards one.
+
+One thing to pay attention to in this sample: We do not explicitly label the images as `horses` or `humans`. If you remember with the handwriting example earlier, we had labelled `'this is a 1'`, `'this is a 7'` etc. Later you'll see something called an `ImageGenerator` being used -- and this is coded to read images from subdirectories, and **automatically label them from the name of that subdirectory**. So, for example, you will have a 'training' directory containing a 'horses' directory and a 'humans' one. ImageGenerator will label the images appropriately for you, reducing a coding step.
+
+Horse or Human CNN:
+I was detected as a horse!
+![](me.png)
+![](me_as_a_horse.png)
+
+## Data processing
+Let's set up data generators that will read pictures in our source folders, convert them to `float32` tensors, and feed them (with their labels) to our network. Our generators will yield batches of images of size 300x300 and their labels (binary).
+
+```py
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+# All images will be rescaled by 1./255
+train_datagen = ImageDataGenerator(rescale=1/255)
+
+# Flow training images in batches of 128 using train_datagen generator
+train_generator = train_datagen.flow_from_directory(
+        '/tmp/horse-or-human/',  # This is the source directory for training images
+        target_size=(300, 300),  # All images will be resized to 150x150
+        batch_size=128,
+        # Since we use binary_crossentropy loss, we need binary labels
+        class_mode='binary')
+```
