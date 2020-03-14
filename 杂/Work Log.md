@@ -306,17 +306,17 @@ Also the `node-red` flow was empty when I started it. So I re-created the flow, 
 
 This week I installed EIS V2.1.1 in the dual boot Ubuntu 18.04. The thing was when I run `docker-compose up --build -d`, the `Visualizer` windows didn't come up. I checked the console output with `docker-compose logs -t -f`, found the following:
 
-> ia_visualizer         | No protocol specified
-> ia_visualizer         | No protocol specified
-> ia_visualizer         | 2020-03-14 17:23:11,495 : ERROR  : Insecure Mode : root : [visualize.py] :main : in line : [628] : Error during execution:
-> ia_visualizer         | Traceback (most recent call last):
-> ia_visualizer         |   File "visualize.py", line 506, in main
-> ia_visualizer         |     rootWin = Tk()
-> ia_visualizer         |   File "/usr/lib/python3.6/tkinter/__init__.py", line 2023, in __init__
-> ia_visualizer         |     self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)
-> ia_visualizer         | _tkinter.TclError: couldn't connect to display ":0"
-> ia_visualizer         | 2020-03-14 17:23:11,499 : ERROR  : Insecure Mode : root : [visualize.py] :main : in line : [630] : Destroying EIS databus context
-> ia_visualizer         | NoneType: None
+> ia_visualizer         | No protocol specified<br>
+> ia_visualizer         | No protocol specified<br>
+> ia_visualizer         | 2020-03-14 17:23:11,495 : ERROR  : Insecure Mode : root : [visualize.py] :main : in line : [628] : Error during execution:<br>
+> ia_visualizer         | Traceback (most recent call last):<br>
+> ia_visualizer         |   File "visualize.py", line 506, in main<br>
+> ia_visualizer         |     rootWin = Tk()<br>
+> ia_visualizer         |   File "/usr/lib/python3.6/tkinter/__init__.py", line 2023, in __init__<br>
+> ia_visualizer         |     self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)<br>
+> ia_visualizer         | _tkinter.TclError: couldn't connect to display ":0"<br>
+> ia_visualizer         | 2020-03-14 17:23:11,499 : ERROR  : Insecure Mode : root : [visualize.py] :main : in line : [630] : Destroying EIS databus context<br>
+> ia_visualizer         | NoneType: None<br>
 > ia_visualizer exited with code 1
 
 It seemed the error message `_tkinter.TclError: couldn't connect to display ":0"` was the key. However, what I found when I googled it was:
