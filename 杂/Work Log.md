@@ -1,6 +1,6 @@
 # 29/01/2020 Wednesday
 
-TODO for tomorro:
+TODO for tomorrow:
 
 * reinstall ubuntu in VM ?
 * reinstall EIS in ubuntu VM
