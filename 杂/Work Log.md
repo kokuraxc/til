@@ -1,6 +1,6 @@
 # 29/01/2020 Wednesday
 
-TODO for tomorro:
+TODO for tomorrow:
 
 * reinstall ubuntu in VM ?
 * reinstall EIS in ubuntu VM
@@ -300,3 +300,45 @@ The dashboard configuration for the report in the mongodb in my laptop was not t
 
 Also the `node-red` flow was empty when I started it. So I re-created the flow, with `mosca` `mqtt` broker, and a TCP port listener which generates the simulated status data together with the timestamp.
 
+# 15 Mar 2020, Sunday
+
+## Solved the EIS Visualizer windows missing problem
+
+This week I installed EIS V2.1.1 in the dual boot Ubuntu 18.04. The thing was when I run `docker-compose up --build -d`, the `Visualizer` windows didn't come up. I checked the console output with `docker-compose logs -t -f`, found the following:
+
+> ia_visualizer         | No protocol specified<br>
+> ia_visualizer         | No protocol specified<br>
+> ia_visualizer         | 2020-03-14 17:23:11,495 : ERROR  : Insecure Mode : root : [visualize.py] :main : in line : [628] : Error during execution:<br>
+> ia_visualizer         | Traceback (most recent call last):<br>
+> ia_visualizer         |   File "visualize.py", line 506, in main<br>
+> ia_visualizer         |     rootWin = Tk()<br>
+> ia_visualizer         |   File "/usr/lib/python3.6/tkinter/__init__.py", line 2023, in __init__<br>
+> ia_visualizer         |     self.tk = _tkinter.create(screenName, baseName, className, interactive, wantobjects, useTk, sync, use)<br>
+> ia_visualizer         | _tkinter.TclError: couldn't connect to display ":0"<br>
+> ia_visualizer         | 2020-03-14 17:23:11,499 : ERROR  : Insecure Mode : root : [visualize.py] :main : in line : [630] : Destroying EIS databus context<br>
+> ia_visualizer         | NoneType: None<br>
+> ia_visualizer exited with code 1
+
+It seemed the error message `_tkinter.TclError: couldn't connect to display ":0"` was the key. However, what I found when I googled it was:
+
+> This is because the container couldn't access the x11 socket of the host. so when doing the docker run, need to include these two flag.
+> 
+> `-v /tmp/.X11-unix:/tmp/.X11-unix`
+> `-e DISPLAY=unix$DISPLAY`
+>
+> and after this, we need to do another operation. because the default settings of X11 only allows local users to print. so we need to change this to all users.
+>
+> `$ sudo apt-get install x11-xserver-utils`
+> `$ xhost +`
+
+The line `-v /tmp/.X11-unix:/tmp/.X11-unix` was already in the `docker-compose.yml` file; the `x11-xserver-utils` was alreay installed. And I also ran the command `xhost +` before the `docker-compose up` command. Now what's left was `-e DISPLAY=unix$DISPLAY`. I compared the `docker-compose.yml` files from EIS V2 and V2.1.1. There was no change for this part. And I didn't encounter this problem with V2. 
+
+I googled on, and found a command `export DISPLAY=$DISPLAY`, tried it. No luck.
+
+In the `docker-compose.yml` file, the DISPLAY was specified as:
+```
+environment:
+    AppName: "Visualizer"
+     DISPLAY: ":0"
+```
+When I came across the command `echo $DISPLAY`, I tried it in the command. The console spitted `:1`! So this must be the problem! I changed `DISPLAY: ":0"` to `DISPLAY: ":1"`, redid the provisioning, and `docker-compose up --build -d`. The lovely `Visualizer` window was **BACK**!
